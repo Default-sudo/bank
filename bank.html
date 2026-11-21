@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBank - Online Banking</title>
+    <link rel="stylesheet" href="bank.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <nav class="navbar">
+        <h2 class="logo">Smart<span>Bank</span></h2>
+
+        <div class="nav-right">
+            <span>Welcome, Customer</span>
+            <button onclick="logout()" class="logout-btn">
+                Logout
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- DASHBOARD -->
+<main class="dashboard">
+
+    <div class="welcome">
+        <h1>My Banking Dashboard</h1>
+        <p>Manage your money easily and securely.</p>
+    </div>
+
+    <!-- ACCOUNT BALANCE -->
+    <section class="balance-card">
+        <div>
+            <p>Total Account Balance</p>
+            <h1 id="balance">KSh 50,000.00</h1>
+            <small>Account: 1234567890</small>
+        </div>
+
+        <div class="bank-icon">🏦</div>
+    </section>
+
+    <!-- ACTIONS -->
+    <section class="actions">
+        <button onclick="showForm('deposit')">
+            <span>➕</span>
+            Deposit
+        </button>
+
+        <button onclick="showForm('withdraw')">
+            <span>💸</span>
+            Withdraw
+        </button>
+
+        <button onclick="showForm('transfer')">
+            <span>↗️</span>
+            Transfer
+        </button>
+    </section>
+
+    <!-- TRANSACTION FORM -->
+    <section class="form-section" id="transactionSection">
+        <h2 id="formTitle">Bank Transaction</h2>
+
+        <form id="transactionForm">
+
+            <div id="recipientField" hidden>
+                <label>Recipient Account Number</label>
+                <input type="text" id="recipient"
+                       placeholder="Enter account number">
+            </div>
+
+            <label>Amount (KSh)</label>
+            <input type="number" id="amount"
+                   placeholder="Enter amount"
+                   min="1" step="0.01" required>
+
+            <button type="submit" class="primary-btn">
+                Confirm Transaction
+            </button>
+        </form>
+
+        <p id="message"></p>
+    </section>
+
+    <!-- TRANSACTIONS -->
+    <section class="transactions">
+        <h2>Recent Transactions</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="transactionHistory"></tbody>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <h2>SmartBank</h2>
+    <p>Banking Made Simple.</p>
+    <p>© 2026 SmartBank. All Rights Reserved. | Phillcode</p>
+    <p>Educational banking simulation only.</p>
+</footer>
+
+<script src="bank.js"></script>
+</body>
+</html>
